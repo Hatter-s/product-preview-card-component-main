@@ -1,0 +1,141 @@
+@use "./util/var" as var;
+@use "./util/josh_comeau_reset";
+
+$h-size: 2.4em;
+
+body {
+  position: relative;
+  background-color: var.$cream;
+  min-height: 100vh;
+  width: 100vw;
+  isolation: isolate;
+  margin: 0;
+  font-size: var.$font-size;
+  font-weight: var.$med;
+  z-index: 1;
+  color: var.$dark-grayish-blue;
+  font-family: var.$family;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  p {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  main {
+    display: flex;
+    flex-flow: row wrap;
+    position: relative;
+    max-width: 600px;
+    margin: 1em;
+
+    z-index: 2;
+
+    picture {
+      width: 50%;
+      height: 100%;
+      border-radius: 10px 0 0 10px;
+      overflow: hidden;
+
+      @media (max-width: 512px) {
+        & {
+          width: 100%;
+          border-radius: 10px 10px 0 0;
+        }
+      }
+      img {
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    section.content {
+      flex: 1;
+      padding: 2em;
+      background-color: var.$white;
+
+
+      @media (max-width: 512px) {
+        & {
+          width: 100%;
+          border-radius: 0 10px 10px 0;
+        }
+      }
+
+      .title {
+        font-size: $h-size;
+        color: var.$very-dark-blue;
+        font-family: var.$h-family;
+        font-weight: var.$bold;
+        line-height: 1;
+        margin: 0.75em 0;
+      }
+
+      .subtitle {
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.35em;
+      }
+
+      .description {
+        line-height: 1.5em;
+      }
+
+      .prices {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+        gap: 1em;
+        align-items: center;
+        margin: 1.5em 0;
+
+        .current-price {
+          color: var.$dark-cyan;
+          font-size: $h-size;
+          font-family: var.$h-family;
+          font-weight: var.$bold;
+        }
+
+        .price {
+          text-decoration: line-through;
+        }
+      }
+
+      .buy-button {
+        display: block;
+        width: 100%;
+        border: none;
+        background-color: var.$dark-cyan;
+        color: var.$white;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+        padding: 1em;
+        gap: 1em;
+        border-radius: 8px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: hsl(155, 37%, 19%);
+        }
+      }
+    }
+  }
+
+  .attribution {
+    position: absolute;
+    font-size: 11px;
+    text-align: center;
+    bottom: 10px;
+    z-index: 1;
+    a {
+      color: hsl(228, 45%, 44%);
+    }
+  }
+}
+
+@media (max-width: 512px) {
+}
